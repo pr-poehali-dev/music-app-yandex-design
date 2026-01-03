@@ -119,13 +119,13 @@ const Index = () => {
                   {mockPlaylists.map(playlist => (
                     <div
                       key={playlist.id}
-                      className="bg-card rounded-xl p-4 hover:bg-secondary/50 transition-all cursor-pointer hover-scale group"
+                      className="bg-card rounded-lg p-3 hover:bg-secondary/50 transition-all cursor-pointer hover-scale group"
                     >
-                      <div className="relative mb-4">
+                      <div className="relative mb-3">
                         <img
                           src={playlist.coverUrl}
                           alt={playlist.title}
-                          className="w-full aspect-square rounded-lg object-cover"
+                          className="w-full aspect-square rounded-md object-cover"
                         />
                         <button className="absolute bottom-2 right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:scale-110 transform">
                           <Icon name="Play" size={24} className="text-primary-foreground ml-1" />
