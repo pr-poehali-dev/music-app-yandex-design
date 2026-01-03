@@ -4,48 +4,46 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 50% 10%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 50% 10%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 50% 10%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 210 100% 45%;
+    --primary: 0 100% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 100% 92%;
-    --secondary-foreground: 220 50% 10%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 50% 94%;
-    --muted-foreground: 220 30% 40%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 210 100% 45%;
+    --accent: 0 100% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 50% 85%;
-    --input: 210 50% 85%;
-    --ring: 210 100% 45%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 100% 65%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 50% 10%;
-    --sidebar-primary: 210 100% 45%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 100% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 100% 92%;
-    --sidebar-accent-foreground: 220 50% 10%;
-    --sidebar-border: 210 50% 85%;
-    --sidebar-ring: 210 100% 45%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 100% 65%;
   }
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 @layer base {
   * {
@@ -54,7 +52,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Roboto", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
