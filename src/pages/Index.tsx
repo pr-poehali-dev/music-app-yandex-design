@@ -151,7 +151,17 @@ const Index = () => {
                       }}
                       className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group"
                     >
-                      <span className="text-muted-foreground w-8 text-center">{index + 1}</span>
+                      <span className="w-8 text-center">
+                        {currentTrack.id === track.id && isPlaying ? (
+                          <div className="flex items-end gap-0.5 h-4 justify-center">
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '40%', animation: 'pulse 0.8s ease-in-out infinite' }} />
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '100%', animation: 'pulse 0.8s ease-in-out 0.2s infinite' }} />
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '60%', animation: 'pulse 0.8s ease-in-out 0.4s infinite' }} />
+                          </div>
+                        ) : (
+                          <span className="text-muted-foreground">{index + 1}</span>
+                        )}
+                      </span>
                       <img src={track.coverUrl} alt={track.title} className="w-12 h-12 rounded-lg" />
                       <div className="flex-1 min-w-0">
                         <div className="font-medium truncate">{track.title}</div>
@@ -197,8 +207,19 @@ const Index = () => {
                           setCurrentTrack(track);
                           setIsPlaying(true);
                         }}
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group"
+                        className={`flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group ${
+                          currentTrack.id === track.id && isPlaying ? 'bg-secondary/70' : ''
+                        }`}
                       >
+                        <div className="w-8 flex items-center justify-center">
+                          {currentTrack.id === track.id && isPlaying ? (
+                            <div className="flex items-end gap-0.5 h-4">
+                              <div className="w-0.5 bg-primary animate-pulse" style={{ height: '40%', animation: 'pulse 0.8s ease-in-out infinite' }} />
+                              <div className="w-0.5 bg-primary animate-pulse" style={{ height: '100%', animation: 'pulse 0.8s ease-in-out 0.2s infinite' }} />
+                              <div className="w-0.5 bg-primary animate-pulse" style={{ height: '60%', animation: 'pulse 0.8s ease-in-out 0.4s infinite' }} />
+                            </div>
+                          ) : null}
+                        </div>
                         <img src={track.coverUrl} alt={track.title} className="w-14 h-14 rounded-lg" />
                         <div className="flex-1 min-w-0">
                           <div className="font-medium truncate text-lg">{track.title}</div>
@@ -261,8 +282,19 @@ const Index = () => {
                         setCurrentTrack(track);
                         setIsPlaying(true);
                       }}
-                      className="flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group"
+                      className={`flex items-center gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors cursor-pointer group ${
+                        currentTrack.id === track.id && isPlaying ? 'bg-secondary/70' : ''
+                      }`}
                     >
+                      <div className="w-8 flex items-center justify-center">
+                        {currentTrack.id === track.id && isPlaying ? (
+                          <div className="flex items-end gap-0.5 h-4">
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '40%', animation: 'pulse 0.8s ease-in-out infinite' }} />
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '100%', animation: 'pulse 0.8s ease-in-out 0.2s infinite' }} />
+                            <div className="w-0.5 bg-primary animate-pulse" style={{ height: '60%', animation: 'pulse 0.8s ease-in-out 0.4s infinite' }} />
+                          </div>
+                        ) : null}
+                      </div>
                       <img src={track.coverUrl} alt={track.title} className="w-14 h-14 rounded-lg" />
                       <div className="flex-1 min-w-0">
                         <div className="font-medium truncate text-lg">{track.title}</div>
@@ -320,8 +352,20 @@ const Index = () => {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 w-32">
+            <div className="flex items-center gap-3 w-40">
               <Icon name="Volume2" size={20} className="text-muted-foreground" />
+              <div className="flex items-end gap-1 h-5">
+                {[1, 2, 3, 4, 5].map((bar) => (
+                  <div
+                    key={bar}
+                    className="w-1 bg-primary rounded-full transition-all"
+                    style={{
+                      height: volume[0] >= bar * 20 ? `${bar * 20}%` : '20%',
+                      opacity: volume[0] >= bar * 20 ? 1 : 0.3,
+                    }}
+                  />
+                ))}
+              </div>
               <Slider
                 value={volume}
                 onValueChange={setVolume}
